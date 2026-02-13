@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Noopur, will you be my Valentine? ❤️</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      width: 500px;
+      max-width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      position: relative;
+      height: 150px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background: #888;
+      color: white;
+      position: absolute;
+      left: 60%;
+      top: 10px;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+      display: none;
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+
+    #gif {
+      margin-top: 20px;
+      display: none;
+      max-width: 100%;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <h1>Noopur, will you be my Valentine? ❤️</h1>
+
+    <p>From Jay, with love 💕</p>
+
+    <div class="buttons" id="buttonArea">
+
+      <button id="yesBtn">Yes 💖</button>
+
+      <button id="noBtn">No 😢</button>
+
+    </div>
+
+    <div id="message">
+      YAY NOOPUR!!! 💃🕺❤️  
+      Jay is officially the luckiest person alive 🥳
+    </div>
+
+    <img
+      id="gif"
+      src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+      alt="Dancing meme"
+    >
+
+  </div>
+
+<script>
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const message = document.getElementById("message");
+const gif = document.getElementById("gif");
+const buttonArea = document.getElementById("buttonArea");
+
+function moveButton() {
+
+  const area = buttonArea.getBoundingClientRect();
+  const btn = noBtn.getBoundingClientRect();
+
+  const maxX = area.width - btn.width;
+  const maxY = area.height - btn.height;
+
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
+
+  noBtn.style.left = randomX + "px";
+  noBtn.style.top = randomY + "px";
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", function(e){
+  e.preventDefault();
+  moveButton();
+});
+
+yesBtn.addEventListener("click", function(){
+
+  message.style.display = "block";
+  gif.style.display = "block";
+  buttonArea.style.display = "none";
+
+});
+
+</script>
+
+</body>
+</html>
